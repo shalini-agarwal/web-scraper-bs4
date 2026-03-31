@@ -13,7 +13,10 @@ for article in soup.find_all('article'):
     summary = article.find('div', class_ = 'entry-content').p.text
     print(summary)
 
-    img_src = article.img['src']
+    try:
+        img_src = article.img['src']
+    except Exception as e:
+        img_src = None 
+        
     print(img_src)
-    
     print()
